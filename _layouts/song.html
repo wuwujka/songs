@@ -1,0 +1,32 @@
+<html>
+  <head>
+  <meta charset=utf8>
+  <link rel="stylesheet" href="/style.css">
+
+  </head>
+  <body>
+    <div class="content">
+      {% include menu.html %}
+      <hr>
+      <h1>{{page.name}}</h1>
+      {% if page.song %}
+        <div class="song">
+          {{ page.song }}
+        </div>
+      {% endif %}
+
+      <div class="text">
+        {{content}}
+      </div>
+
+      {% if page.liveyoutube %}
+        <hr>
+        <h2>Живое исполнение</h2>
+        {% for id in page.liveyoutube %}
+          <iframe width="390" height="315" src="https://www.youtube.com/embed/{{id}}" frameborder="0" allowfullscreen></iframe>
+        {% endfor %}
+      {% endif %}
+      {% include footer.html %}
+    </div>
+  </body>
+</html>
